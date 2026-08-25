@@ -197,17 +197,158 @@ h1.hero-name.glitch::after{animation:heroGlitch2 .55s steps(2,end) 1}
 .about-copy,.id-card,.mini{min-width:0}
 
 /* ---------- education ---------- */
-.timeline{position:relative;display:grid;gap:22px;padding-left:34px}
-.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,transparent,var(--line-strong),transparent)}
-.tl-item{position:relative;padding:26px}
-.tl-item::before{
-  content:"";position:absolute;left:-30px;top:32px;width:11px;height:11px;transform:rotate(45deg);
-  background:var(--bg);border:1px solid var(--cyan);box-shadow:var(--glow);
+.education-path{
+  position:relative;
+  display:grid;
+  gap:12px;
+  width:min(820px,100%);
+  margin:22px auto 0;
+  padding:0 0 0 34px;
 }
-.tl-head{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:8px}
-.tl-item h3{font-size:20px;font-weight:600}
-.tl-item p{margin:0;color:var(--muted);font-size:13.5px}
-
+.education-path::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:12px;
+  bottom:12px;
+  width:1px;
+  background:linear-gradient(180deg,transparent,var(--line-strong) 8%,var(--cyan) 50%,var(--line-strong) 92%,transparent);
+  box-shadow:0 0 8px rgba(94,242,230,.18);
+}
+.edu-node{
+  position:relative;
+  padding:14px 18px;
+  min-height:0;
+  overflow:visible;
+}
+.edu-node::before{
+  content:"";
+  position:absolute;
+  left:-30px;
+  top:24px;
+  width:12px;
+  height:12px;
+  transform:translateY(-50%) rotate(45deg);
+  background:var(--bg);
+  border:1px solid var(--line-strong);
+  z-index:2;
+}
+.edu-node.current{
+  border-color:rgba(94,242,230,.95);
+  box-shadow:
+    0 0 18px rgba(94,242,230,.18),
+    0 0 42px rgba(94,242,230,.10),
+    inset 0 0 34px rgba(94,242,230,.045);
+  animation:currentGlow 2.8s ease-in-out infinite;
+}
+@keyframes currentGlow{
+  0%,100%{
+    box-shadow:
+      0 0 18px rgba(94,242,230,.16),
+      0 0 40px rgba(94,242,230,.08),
+      inset 0 0 30px rgba(94,242,230,.04);
+  }
+  50%{
+    box-shadow:
+      0 0 28px rgba(94,242,230,.30),
+      0 0 58px rgba(94,242,230,.16),
+      inset 0 0 38px rgba(94,242,230,.07);
+  }
+}
+.edu-node.current::before{
+  background:var(--cyan);
+  border-color:var(--cyan);
+  box-shadow:
+    0 0 10px rgba(94,242,230,.95),
+    0 0 24px rgba(94,242,230,.72),
+    0 0 42px rgba(94,242,230,.38);
+  animation:currentNodeGlow 2.2s ease-in-out infinite;
+}
+@keyframes currentNodeGlow{
+  0%,100%{
+    transform:translateY(-50%) rotate(45deg) scale(1);
+  }
+  50%{
+    transform:translateY(-50%) rotate(45deg) scale(1.16);
+  }
+}
+.edu-node.current::after{
+  content:"CURRENT";
+  position:absolute;
+  right:14px;
+  top:12px;
+  padding:4px 7px;
+  border:1px solid rgba(94,242,230,.5);
+  color:var(--cyan);
+  font-size:8px;
+  letter-spacing:.18em;
+  background:rgba(94,242,230,.035);
+}
+.edu-row{
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  align-items:center;
+  gap:18px;
+}
+.edu-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  color:var(--teal);
+  font-size:17px;
+  position:relative;
+}
+.edu-icon::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border:1px solid rgba(94,242,230,.14);
+}
+.edu-node.current .edu-icon{
+  color:var(--cyan);
+  border-color:rgba(94,242,230,.6);
+  box-shadow:0 0 12px rgba(94,242,230,.1);
+}
+.edu-copy h3{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:600;
+  line-height:1.2;
+}
+.edu-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.4;
+}
+.edu-degree{
+  color:var(--cyan);
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-align:right;
+  white-space:nowrap;
+}
+.edu-index{
+  display:block;
+  color:var(--teal);
+  font-size:8px;
+  letter-spacing:.18em;
+  margin-bottom:4px;
+}
+.edu-note{
+  width:min(820px,100%);
+  margin:12px auto 0;
+  padding:9px 13px;
+  border-left:1px solid var(--cyan);
+  background:rgba(94,242,230,.025);
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.5;
+}
+.edu-note strong{color:var(--cyan);font-weight:500;letter-spacing:.12em}
 /* ---------- skills ---------- */
 .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .skill{padding:22px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden}
@@ -282,6 +423,52 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px
   .skill-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:760px){
+
+  .education-path{
+    gap:10px;
+    padding-left:28px;
+    margin-top:20px;
+  }
+  .education-path::before{
+    left:8px;
+    top:12px;
+    bottom:12px;
+  }
+  .edu-node{
+    padding:12px 14px;
+  }
+  .edu-node::before{
+    left:-26px;
+    top:23px;
+    width:10px;
+    height:10px;
+  }
+  .edu-node.current::after{
+    right:10px;
+    top:9px;
+    font-size:7px;
+  }
+  .edu-row{
+    grid-template-columns:42px 1fr;
+    gap:12px;
+  }
+  .edu-icon{
+    width:36px;
+    height:36px;
+    font-size:14px;
+  }
+  .edu-copy h3{font-size:14px}
+  .edu-copy p{font-size:10px}
+  .edu-degree{
+    grid-column:2;
+    text-align:left;
+    margin-top:-4px;
+  }
+  .edu-note{
+    margin-top:10px;
+    padding:8px 11px;
+    font-size:8.5px;
+  }
   nav.links{display:none}
   #navToggle{display:flex}
   #mobileNav{
@@ -425,29 +612,53 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px
   <!-- EDUCATION -->
   <section id="education" aria-labelledby="eduTitle">
     <div class="wrap">
-      <p class="eyebrow reveal">02 / Timeline</p>
+      <p class="eyebrow reveal">02 / Academic Path</p>
       <h2 class="sec-title reveal" id="eduTitle">Education</h2>
-      <p class="sec-sub reveal">My academic path, from school to my current degree.</p>
+      <p class="sec-sub reveal">How I got here — and where I am building from now.</p>
 
-      <div class="timeline">
-        <article class="panel tl-item reveal">
+      <div class="education-path" aria-label="Education timeline">
+        <article class="panel edu-node reveal">
           <span class="corner tr" aria-hidden="true"></span>
-          <div class="tl-head"><span class="tag">10th</span></div>
-          <h3>Army Public School</h3>
-          <p>Bikaner</p>
+          <div class="edu-row">
+            <div class="edu-icon" aria-hidden="true">⌂</div>
+            <div class="edu-copy">
+              <span class="edu-index">01 / SCHOOL · COMPLETED</span>
+              <h3>Army Public School</h3>
+              <p>Bikaner</p>
+            </div>
+            <div class="edu-degree">10th · CBSE</div>
+          </div>
         </article>
-        <article class="panel tl-item reveal">
+
+        <article class="panel edu-node reveal">
           <span class="corner tr" aria-hidden="true"></span>
-          <div class="tl-head"><span class="tag">12th</span></div>
-          <h3>Darjeeling Public School</h3>
-          <p>Siliguri</p>
+          <div class="edu-row">
+            <div class="edu-icon" aria-hidden="true">✎</div>
+            <div class="edu-copy">
+              <span class="edu-index">02 / SCHOOL · COMPLETED</span>
+              <h3>Darjeeling Public School</h3>
+              <p>Siliguri</p>
+            </div>
+            <div class="edu-degree">12th · CBSE</div>
+          </div>
         </article>
-        <article class="panel tl-item reveal">
+
+        <article class="panel edu-node current reveal" aria-label="Current education">
           <span class="corner tr" aria-hidden="true"></span>
-          <div class="tl-head"><span class="tag">Current</span><span class="pulse" aria-hidden="true"></span></div>
-          <h3>B.Sc. Computer Science</h3>
-          <p>Surya Sen Mahavidyalaya, Siliguri</p>
+          <div class="edu-row">
+            <div class="edu-icon" aria-hidden="true">⌘</div>
+            <div class="edu-copy">
+              <span class="edu-index">03 / NOW</span>
+              <h3>B.Sc. Computer Science</h3>
+              <p>Surya Sen Mahavidyalaya, Siliguri · 2nd Year</p>
+            </div>
+            <div class="edu-degree">Undergraduate</div>
+          </div>
         </article>
+      </div>
+
+      <div class="edu-note reveal">
+        <strong>NOW BUILDING:</strong> strengthening my computer science foundations while learning web design and exploring what I want to create next.
       </div>
     </div>
   </section>
