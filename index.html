@@ -171,7 +171,7 @@ h1.hero-name.glitch::after{animation:heroGlitch2 .55s steps(2,end) 1}
   height:240px;
   display:flex;align-items:flex-end;justify-content:center;
 }
-.id-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom;transform:scale(1.12);transform-origin:center bottom;filter:grayscale(.15) contrast(1.05)}
+.id-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom;transform:scale(1.12);transform-origin:center bottom;filter:grayscale(.15) contrast(1.05);-webkit-mask-image:radial-gradient(ellipse 88% 100% at center,black 66%,transparent 100%);mask-image:radial-gradient(ellipse 88% 100% at center,black 66%,transparent 100%)}
 .id-photo::after{
   content:"";position:absolute;inset:0;
   background:
@@ -501,6 +501,21 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px
 @media (max-width:860px){
   #about .id-photo{height:300px;}
 }
+
+
+/* ===== Feminine / Creative Professional Theme ===== */
+:root{--panel:rgba(18,16,32,.78);--panel-solid:#111827;--line:rgba(255,170,212,.18);--line-strong:rgba(255,170,212,.45);--cyan:#ff7eb6;--cyan-dim:#ff5fa2;--teal:#9b7bff;--ink:#fff7fb;--muted:#d0b8c8;--glow:0 0 24px rgba(255,126,182,.35)}
+body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transparent 34%),radial-gradient(circle at bottom left,rgba(155,123,255,.10),transparent 38%),var(--bg)}
+.panel,.skill,.edu-node,.proj-info,.proj-visual,.contact-info,.contact-form{border-color:rgba(255,170,212,.18);box-shadow:0 8px 24px rgba(255,126,182,.05)}
+.btn.solid{background:linear-gradient(135deg,#ff7eb6,#9b7bff);color:#fff;border:none;box-shadow:0 10px 25px rgba(255,126,182,.25)}
+.btn.solid:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,126,182,.35)}
+.btn.ghost{border-color:rgba(255,170,212,.35)}
+.hero::before{background:radial-gradient(circle,rgba(255,126,182,.18),transparent 70%)}
+.tag{background:rgba(255,126,182,.10);border:1px solid rgba(255,170,212,.20);color:#ffd3e6}
+.sec-title{background:linear-gradient(90deg,#fff,#ffd0e8,#bba6ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.skill:hover,.panel:hover{border-color:rgba(255,170,212,.45);box-shadow:0 0 30px rgba(255,126,182,.12);transform:translateY(-4px)}
+.id-photo img{mask-image:radial-gradient(circle at center,black 62%,transparent 88%);-webkit-mask-image:radial-gradient(circle at center,black 62%,transparent 88%)}
+
 </style>
 </head>
 <body>
