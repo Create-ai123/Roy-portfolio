@@ -516,6 +516,63 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
 .skill:hover,.panel:hover{border-color:rgba(255,170,212,.45);box-shadow:0 0 30px rgba(255,126,182,.12);transform:translateY(-4px)}
 .id-photo img{mask-image:radial-gradient(circle at center,black 62%,transparent 88%);-webkit-mask-image:radial-gradient(circle at center,black 62%,transparent 88%)}
 
+
+/* ===== Creative identity upgrades ===== */
+.nav-tools{display:flex;align-items:center;gap:10px}
+.theme-toggle{display:inline-flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid var(--line);background:rgba(255,126,182,.06);color:var(--muted);font:500 9px/1 var(--mono);letter-spacing:.16em;cursor:pointer;transition:.3s;border-radius:999px}
+.theme-toggle:hover{color:var(--cyan);border-color:var(--line-strong);box-shadow:var(--glow);transform:translateY(-1px)}
+.theme-icon{font-size:14px;line-height:1;color:var(--cyan)}
+.secret-hint{margin-top:22px;border:0;background:transparent;color:var(--muted);font:500 10px/1.4 var(--mono);letter-spacing:.12em;cursor:pointer;padding:4px 0;transition:.3s}
+.secret-hint:hover{color:var(--cyan);text-shadow:0 0 14px rgba(255,126,182,.55)}
+.secret-hint:focus-visible{outline:1px dashed var(--cyan);outline-offset:5px}
+#cursorDot,#cursorRing{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;opacity:0;transform:translate(-50%,-50%);transition:opacity .2s ease}
+#cursorDot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(255,126,182,.75)}
+#cursorRing{width:30px;height:30px;border:1px solid rgba(255,170,212,.7);border-radius:50%;transition:width .2s,height .2s,border-color .2s,opacity .2s}
+body.cursor-hover #cursorRing{width:46px;height:46px;border-color:var(--cyan)}
+body.cursor-hover #cursorDot{transform:translate(-50%,-50%) scale(1.4)}
+.creative-terminal{margin-top:34px;padding:0;overflow:hidden;border-radius:16px;clip-path:none}
+.terminal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.16em;color:var(--muted);background:rgba(255,126,182,.05)}
+.terminal-head>span:first-child{color:var(--ink)}
+.terminal-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:var(--glow);margin-right:7px}
+.terminal-status{color:var(--cyan-dim)}
+.terminal-screen{min-height:160px;padding:18px 18px 8px;font:500 11px/1.9 var(--mono);color:var(--muted)}
+.terminal-pink{color:#ff9cc8}
+.terminal-prompt{margin-top:6px;color:var(--ink)}
+.terminal-input-row{display:flex;align-items:center;gap:8px;padding:0 18px 8px;color:var(--cyan);font:600 12px var(--mono)}
+#terminalInput{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font:500 12px var(--mono);padding:7px 0}
+#terminalInput::placeholder{color:rgba(208,184,200,.55)}
+.terminal-hint{margin:0;padding:0 18px 16px;color:var(--muted);font-size:9px;letter-spacing:.05em}
+.terminal-hint b{color:var(--cyan)}
+.secret-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,18px);z-index:2000;max-width:min(90vw,520px);padding:12px 16px;border:1px solid var(--line-strong);background:rgba(18,16,32,.94);backdrop-filter:blur(14px);color:var(--ink);font:500 11px/1.5 var(--mono);letter-spacing:.04em;box-shadow:0 16px 45px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.35s}
+.secret-toast.show{opacity:1;transform:translate(-50%,0)}
+body.light-theme{--bg:#fff8fc;--bg-2:#fff1f8;--panel:rgba(255,255,255,.78);--panel-solid:#fff;--line:rgba(170,96,145,.22);--line-strong:rgba(170,96,145,.48);--ink:#302233;--muted:#756276;--glow:0 0 24px rgba(217,104,162,.24)}
+body.light-theme .bg-grid{background-image:linear-gradient(rgba(170,96,145,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(170,96,145,.08) 1px,transparent 1px)}
+body.light-theme .bg-vign{background:radial-gradient(circle at top right,rgba(255,126,182,.20),transparent 35%),radial-gradient(circle at bottom left,rgba(155,123,255,.14),transparent 40%)}
+body.light-theme .bg-scan{opacity:.25}
+body.light-theme #cursorGlow{background:radial-gradient(circle,rgba(255,126,182,.13),rgba(155,123,255,.05) 40%,transparent 68%)}
+body.light-theme header.nav.stuck{background:rgba(255,248,252,.88)}
+body.light-theme .hero-terminal{background:rgba(255,255,255,.58);color:rgba(117,98,118,.8)}
+body.light-theme .terminal-head{background:rgba(255,126,182,.07)}
+body.light-theme .secret-toast{background:rgba(255,250,253,.96);color:var(--ink)}
+body.light-theme #mobileNav{background:rgba(255,248,252,.97)}
+body.light-theme #mobileNav a{color:var(--ink);border-bottom-color:rgba(170,96,145,.12)}
+body.light-theme .btn.ghost{color:var(--ink)}
+body.light-theme .theme-toggle{background:rgba(255,126,182,.08)}
+@media (hover:none),(pointer:coarse){#cursorDot,#cursorRing{display:none}}
+@media (max-width:760px){
+  .nav-in{padding:12px 18px}
+  .nav-tools{gap:7px}
+  .theme-toggle{width:38px;height:36px;padding:0;justify-content:center;border-radius:10px}
+  .theme-label{display:none}
+  #navToggle{width:38px;height:36px}
+  #mobileNav{inset:60px 12px auto 12px;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.22)}
+  #mobileNav.open{max-height:430px}
+  #mobileNav a{padding:15px 18px;border-radius:8px;margin:3px 6px}
+  .secret-hint{font-size:9px;margin-top:18px}
+  .creative-terminal{margin-top:24px}
+  .terminal-screen{min-height:150px;font-size:10px;padding:15px}
+}
+
 </style>
 </head>
 <body>
@@ -525,6 +582,7 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
 <div class="bg-layer bg-scan"></div>
 <div class="code-rain" id="codeRain" aria-hidden="true"></div>
 <div id="cursorGlow" aria-hidden="true"></div>
+<div id="cursorDot" aria-hidden="true"></div><div id="cursorRing" aria-hidden="true"></div>
 
 <header class="nav" id="siteNav">
   <div class="nav-in">
@@ -537,9 +595,14 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
       <a href="#projects">PROJECTS</a>
       <a href="#contact">CONTACT</a>
     </nav>
-    <button id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation menu">
-      <span class="bars" aria-hidden="true"></span>
-    </button>
+    <div class="nav-tools">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+        <span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">THEME</span>
+      </button>
+      <button id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation menu">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 <div id="mobileNav" aria-label="Mobile">
@@ -571,6 +634,7 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
           <span>Based in <b>Siliguri</b></span>
           <span>Status <b>Learning &amp; Building</b></span>
         </div>
+        <button class="secret-hint" id="sparkleSecret" type="button" aria-label="Discover a small portfolio secret">✦ curious? click the sparkle</button>
         <div class="hero-terminal" aria-hidden="true">
           <div>&gt; scan.identity</div>
           <div class="ok">[ OK ] TANUJA.ROY FOUND</div>
@@ -737,6 +801,25 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
             <div class="laptop-base" aria-hidden="true"></div>
           </div>
         </div>
+      </div>
+
+      <div class="creative-terminal panel reveal" id="creativeTerminal">
+        <div class="terminal-head">
+          <span><i class="terminal-dot"></i> TANUJA.SHELL</span>
+          <span class="terminal-status">● ONLINE</span>
+        </div>
+        <div class="terminal-screen" id="terminalOutput" aria-live="polite">
+          <div>&gt; welcome, curious human.</div>
+          <div class="terminal-pink">[ OK ] next project ........ loading</div>
+          <div>[ OK ] curiosity ......... always on</div>
+          <div>[ OK ] learning .......... ongoing</div>
+          <div>[ OK ] coffee ............ probably required</div>
+          <div class="terminal-prompt">&gt; type <b>help</b> and press Enter</div>
+        </div>
+        <div class="terminal-input-row">
+          <span>&gt;</span><input id="terminalInput" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="try: secret" />
+        </div>
+        <p class="terminal-hint">Try <b>help</b>, <b>about</b>, <b>skills</b>, <b>status</b>, or <b>secret</b>.</p>
       </div>
     </div>
   </section>
@@ -971,6 +1054,99 @@ body{background:radial-gradient(circle at top right,rgba(255,126,182,.12),transp
   ["name", "email", "message"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", function () { setError(id, ""); });
   });
+
+  /* ---- theme switcher ---- */
+  var themeToggle = document.getElementById("themeToggle");
+  var savedTheme = localStorage.getItem("tanuja-theme");
+  if (savedTheme === "light") document.body.classList.add("light-theme");
+  function updateThemeButton() {
+    var light = document.body.classList.contains("light-theme");
+    themeToggle.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+    themeToggle.querySelector(".theme-icon").textContent = light ? "☾" : "☼";
+  }
+  updateThemeButton();
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-theme");
+    localStorage.setItem("tanuja-theme", document.body.classList.contains("light-theme") ? "light" : "dark");
+    updateThemeButton();
+  });
+
+  /* ---- custom creative cursor ---- */
+  var cursorDot = document.getElementById("cursorDot");
+  var cursorRing = document.getElementById("cursorRing");
+  if (!reduceMotion && window.matchMedia("(pointer:fine)").matches) {
+    var mx = -100, my = -100, rx = -100, ry = -100;
+    window.addEventListener("mousemove", function (e) {
+      mx = e.clientX; my = e.clientY;
+      cursorDot.style.opacity = "1"; cursorRing.style.opacity = "1";
+    });
+    function animateCursor() {
+      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+      cursorDot.style.left = mx + "px"; cursorDot.style.top = my + "px";
+      cursorRing.style.left = rx + "px"; cursorRing.style.top = ry + "px";
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    document.querySelectorAll("a,button,.skill,.panel").forEach(function (el) {
+      el.addEventListener("mouseenter", function () { document.body.classList.add("cursor-hover"); });
+      el.addEventListener("mouseleave", function () { document.body.classList.remove("cursor-hover"); });
+    });
+    document.addEventListener("mouseleave", function () { cursorDot.style.opacity = "0"; cursorRing.style.opacity = "0"; });
+    document.addEventListener("mouseenter", function () { cursorDot.style.opacity = "1"; cursorRing.style.opacity = "1"; });
+  }
+
+  /* ---- friendly Easter egg ---- */
+  var secret = document.getElementById("sparkleSecret");
+  var toast = document.createElement("div");
+  toast.className = "secret-toast";
+  document.body.appendChild(toast);
+  var secrets = [
+    "You found it ✦ — a tiny reminder that good design can be playful.",
+    "Secret unlocked: curiosity is one of Tanuja's favorite features.",
+    "Little detail, big personality ♡ — thanks for exploring.",
+    "Achievement unlocked: you actually clicked the sparkle!"
+  ];
+  var secretIndex = 0, toastTimer;
+  function showSecret(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 3200);
+  }
+  secret.addEventListener("click", function () {
+    showSecret(secrets[secretIndex % secrets.length]);
+    secretIndex++;
+  });
+
+  /* ---- mini interactive portfolio terminal ---- */
+  var terminalInput = document.getElementById("terminalInput");
+  var terminalOutput = document.getElementById("terminalOutput");
+  var terminalCommands = {
+    help: "commands: about · skills · status · secret · clear",
+    about: "Tanuja Roy — B.Sc. Computer Science student & aspiring website designer.",
+    skills: "HTML · CSS · Web Design · Creative Design · Drawing · Editing · Problem Solving",
+    status: "LEARNING / BUILDING / EXPLORING — currently creating and improving one project at a time.",
+    secret: "Try the ✦ sparkle near the hero section. It is there for curious visitors."
+  };
+  terminalInput.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    var command = terminalInput.value.trim().toLowerCase();
+    if (!command) return;
+    var line = document.createElement("div");
+    line.innerHTML = "&gt; " + command.replace(/[&<>]/g, "");
+    terminalOutput.appendChild(line);
+    if (command === "clear") {
+      terminalOutput.innerHTML = "<div>&gt; terminal cleared. welcome back.</div>";
+    } else {
+      var response = document.createElement("div");
+      response.className = "terminal-pink";
+      response.textContent = terminalCommands[command] || "command not found — try 'help'.";
+      terminalOutput.appendChild(response);
+    }
+    terminalInput.value = "";
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  });
+
 })();
 </script>
 </body>
